@@ -1,0 +1,56 @@
+*{
+    box-sizing: margin-box;
+    font-family: 'Abel', sans-serif;
+
+}
+
+button{
+    background: #eee;
+    border: 1px solid #909090;
+    width: 12em;
+    height: 3em;
+    font-size: 1em;
+    font-family: 'Exo', sans-serif;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin:auto;
+    position: relative;
+    top:35px;
+    background-image: url(Guillem-Mar%C3%AD.jpg);
+    background-repeat:space;
+    background-position: 50% -5%;
+}
+
+div{
+    margin-bottom: 50px;
+}
+
+#resultDiv{
+    background: rgba(250, 250, 250, 0);
+    height: 1em;
+    font-size: 1.2em;
+    position: relative;
+    top:10px;
+}
+
+#container{
+    margin-bottom: 10px;
+}
+
+#first{
+
+}
+
+#third{
+    margin: auto;
+    padding-bottom: 0;
+}
+
+input {
+    margin-left: 5px;
+    font-size: 0.9em;
+}
