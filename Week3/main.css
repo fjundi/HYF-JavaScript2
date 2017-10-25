@@ -1,0 +1,15 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+
+.wrapper{
+	width: 70%;
+	margin: 0 auto;
+	padding: 2%;
+	background: lightsteelblue;
+}
+
+h1{
+	color: goldenrod;
+}
