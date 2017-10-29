@@ -25,7 +25,6 @@ console.log('hellooooo, someone there?')
 // let's create a variable that references to the button id
 
 let x = document.getElementById("button")
-let y = document.getElementById("mySearch")
 // lets console log it and see what x is at this point
 console.log(x)
 
@@ -34,30 +33,48 @@ console.log(x)
 
 x.addEventListener("click", onClick)
 
-let inputField = document.createElement('input');
-inputField.setAttribute("value", "");
-document.body.appendChild(inputField);
+
+// Please create your input field in your HTML, not with JS
+// let inputField = document.createElement('input');
+// inputField.setAttribute("value", "");
+// document.body.appendChild(inputField);
 
 
-const urlQuery = "https://api.github.com/repos/HackYourFuture/repos/"
-let url = urlQuery + inputField.value
+// get all repo's :
+
+let allReposUrl = 'https://api.github.com/orgs/HackYourFuture/repos';
+console.log(allReposUrl);
+
+// the one you add some stuff to
+const urlQuery = 'https://api.github.com/repos/HackYourFuture/';
+
+//for example: https://api.github.com/repos/HackYourFuture/CommandLine
+
+
 
 function onClick() {
+
+    console.log("you click me!!!!");
+    let y = document.getElementById("input").value;
+    console.log(y);
+
+    let url = urlQuery + y;
+    console.log(url);
 
     let newReq = new XMLHttpRequest;
     newReq.open("GET", url, true);
     newReq.send();
 
     newReq.onreadystatechange = function () {
-        if (newReq.readyState === 4 && newReq.status === 200) {
-            let rawData = newReq.responseText;
+         if (newReq.readyState === 4 && newReq.status === 200) {
+             let rawData = newReq.responseText;
 
-            callback(rawData);
-            let resultDiv = document.createElement('div');
-            document.body.appendChild(resultDiv);
-            resultDiv.innerHTML = url;
-        }
-    }
+             callback(rawData);
+             // let resultDiv = document.createElement('div');
+             // document.body.appendChild(resultDiv);
+             // resultDiv.innerHTML = url;
+         }
+     }
 
     console.log(newReq);
 }
