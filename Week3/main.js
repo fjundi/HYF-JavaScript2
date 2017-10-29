@@ -1,3 +1,5 @@
+
+
 // Step 1
 
 // lets see if I correctly linked my html to my css file:
@@ -23,20 +25,39 @@ console.log('hellooooo, someone there?')
 // let's create a variable that references to the button id
 
 let x = document.getElementById("button")
-
+let y = document.getElementById("mySearch")
 // lets console log it and see what x is at this point
 console.log(x)
 
 // next we want to add an eventlistener that registers if we click the button
 // the first argument is the EVENT we want to register, the second the function we would like to call once this happens.
 
-x.addEventListener("click", helloAgain)
+x.addEventListener("click", onClick)
 
-function helloAgain(){
-	console.log('Hello again, you clicked me silly!')
+let inputField = document.createElement('input');
+inputField.setAttribute("value", "");
+document.body.appendChild(inputField);
+
+
+const urlQuery = "https://api.github.com/repos/HackYourFuture/repos/"
+let url = urlQuery + inputField.value
+
+function onClick() {
+
+    let newReq = new XMLHttpRequest;
+    newReq.open("GET", url, true);
+    newReq.send();
+
+    newReq.onreadystatechange = function () {
+        if (newReq.readyState === 4 && newReq.status === 200) {
+            let rawData = newReq.responseText;
+
+            callback(rawData);
+            let resultDiv = document.createElement('div');
+            document.body.appendChild(resultDiv);
+            resultDiv.innerHTML = url;
+        }
+    }
+
+    console.log(newReq);
 }
-
-// check in te console!
-// Need to go now hope this helps!
-
-
