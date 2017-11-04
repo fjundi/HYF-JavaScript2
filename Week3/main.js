@@ -65,16 +65,25 @@ function onClick() {
     newReq.open("GET", url, true);
     newReq.send();
 
-    newReq.onreadystatechange = function () {
-         if (newReq.readyState === 4 && newReq.status === 200) {
-             let rawData = newReq.responseText;
+     newReq.onreadystatechange = function () {
+        if (newReq.readyState === 4 && newReq.status === 200) {
+            let rawData = newReq.responseText;
 
-             callback(rawData);
-             // let resultDiv = document.createElement('div');
-             // document.body.appendChild(resultDiv);
-             // resultDiv.innerHTML = url;
-         }
-     }
+            let parsed = JSON.parse(rawData);
 
-    console.log(newReq);
+            //            for (let key of parsed)
+                            let info = JSON.stringify(parsed);
+
+            //            return info;
+
+            document.getElementById("display").innerHTML =
+                info;
+            //                         return (rawData);
+            //              let resultDiv = document.createElement('div');
+            //              document.body.appendChild(resultDiv);
+            //              resultDiv.innerHTML = url;
+        }
+    }
+
+    //    console.log(rawData);
 }
